@@ -7,6 +7,8 @@ services:
       - ./:/var/www/
     depends_on:
       - db
+    networks:
+      - code-network
 
   db:
     image: postgres:12.0-alpine
@@ -28,6 +30,8 @@ services:
       - ./:/var/www
     depends_on:
       - web
+    networks:
+      - code-network
 
 networks:
   code-network:
