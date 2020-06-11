@@ -1,0 +1,40 @@
+version: '3'
+services:
+  web:
+    restart: always
+    build: .
+    volumes:
+      - ./:/var/www/
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12.0-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD:
+      POSTGRES_DB: blog
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - code-network
+
+  nginx:
+    build: ./.docker/nginx
+    restart: always
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www
+    depends_on:
+      - web
+
+networks:
+  code-network:
+    driver: bridge
+volumes:
+  pgdata:
+    external: true
+
+#https://medium.com/@vhsilva.ap/configurando-laravel-6-nginx-e-postgresql-com-docker-9ad29c53d5
+#https://forums.docker.com/t/data-directory-var-lib-postgresql-data-pgdata-has-wrong-ownership/17963/31
