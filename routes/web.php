@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('connection',function(){
+    if(DB::connection()->getDatabaseName())
+    {
+        echo "conncted sucessfully to database ".DB::connection()->getDatabaseName();
+
+       $users = DB::select('select * from test');
+       return $users;
+    }
+});

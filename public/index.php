@@ -1,6 +1,5 @@
 <?php
-phpinfo();
-PDO::getAvailableDrivers();die();
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
