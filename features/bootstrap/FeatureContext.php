@@ -4,10 +4,12 @@ use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\Behat\Tester\Exception\PendingException;
+use Behat\MinkExtension\Context\MinkContext;
+use PHPUnit\Framework\Assert as PHPUnit;
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext implements Context
+class FeatureContext extends MinkContext implements Context
 {
     /**
      * Initializes context.
@@ -29,12 +31,33 @@ class FeatureContext implements Context
         return true;
     }
 
+
+    /**
+     * @Then number step with :arg1 is true
+     */
+    public function numberStepWithIsTrue($arg1)
+    {
+      return true;
+    }
     /**
      * @Given number step with :arg1
      */
     public function numberStepWith($arg1)
     {
-        throw new PendingException();
+        return true;
     }
+
+
+    /**
+     * @Then assert is true
+     */
+    public function assertIsTrue()
+    {
+      return   PHPUnit::assertEquals(1,1);
+    }
+
+
+
+
 
 }
