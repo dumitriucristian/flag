@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    phpinfo();die();
     return view('welcome');
 });
+Route::post('/', function(){
 
+});
 Route::get('connection',function(){
 
     if(DB::connection()->getDatabaseName())

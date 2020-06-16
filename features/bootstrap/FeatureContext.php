@@ -6,10 +6,11 @@ use Behat\Gherkin\Node\TableNode;
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\MinkExtension\Context\MinkContext;
 use PHPUnit\Framework\Assert as PHPUnit;
+use Imbo\BehatApiExtension\Context\ApiContext;
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext extends MinkContext implements Context
+class FeatureContext extends ApiContext
 {
     /**
      * Initializes context.

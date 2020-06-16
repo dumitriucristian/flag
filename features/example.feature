@@ -1,8 +1,8 @@
 Feature:
-  Scenario:
-    Given some step with "string" argument
-    And number step with 23
+  Scenario: test graphql request
+    When I request "/"
+    Then the response body contain JSON:
+    """
+    [{"errors":[{"message":"Syntax Error: Unexpected <EOF>","extensions":{"category":"graphql"},"locations":[{"line":1,"column":1}]}]}]
+    """
 
-  Scenario:
-    Given some step with "number" argument
-    Then assert is true

@@ -1,0 +1,8 @@
+default:
+  suites:
+    default:
+
+  extensions:
+    Imbo\BehatApiExtension:
+      apiClient:
+        base_uri: http://172.19.0.1:8000/graphql

@@ -13,8 +13,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 COPY . /var/www
 
-#RUN chmod -R 777 /var/www/storage
-
 EXPOSE 9000
 
 ENTRYPOINT [ "php-fpm" ]
